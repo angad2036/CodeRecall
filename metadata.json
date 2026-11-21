@@ -1,0 +1,6 @@
+{
+  "name": "CodeRecall",
+  "description": "Understand the logic. Master the algorithm. A structured DSA learning platform with interactive visualizations, narrated explanations, and active code recall.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

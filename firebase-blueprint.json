@@ -1,0 +1,221 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Authenticated learner profile and global study streak metadata.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Firebase Auth UID of the owner."
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "Display name of the learner."
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 254,
+          "description": "Verified account email address (PII, owner-only)."
+        },
+        "photoURL": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Profile avatar URL."
+        },
+        "preferredLanguage": {
+          "type": "string",
+          "enum": ["java", "cpp", "python"],
+          "description": "Default coding language in the Solve workbench."
+        },
+        "streakDays": {
+          "type": "number",
+          "description": "Consecutive active study days."
+        },
+        "lastActiveDate": {
+          "type": "string",
+          "maxLength": 20,
+          "description": "ISO calendar date (YYYY-MM-DD) of last activity."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when profile was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when profile was last updated."
+        }
+      },
+      "required": ["uid", "displayName", "email", "preferredLanguage", "streakDays", "lastActiveDate", "createdAt", "updatedAt"]
+    },
+    "ProblemProgress": {
+      "title": "ProblemProgress",
+      "description": "Per-problem progress, saved editor code, recall metrics, and spaced repetition schedule.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Owner Firebase Auth UID."
+        },
+        "problemId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Identifier matching the problem slug."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["unstarted", "attempted", "solved", "mastered"],
+          "description": "Current mastery state for this problem."
+        },
+        "preferredLanguage": {
+          "type": "string",
+          "enum": ["java", "cpp", "python"],
+          "description": "Last active language used on this problem."
+        },
+        "codeJava": {
+          "type": "string",
+          "maxLength": 25000,
+          "description": "Saved Java solution buffer."
+        },
+        "codeCpp": {
+          "type": "string",
+          "maxLength": 25000,
+          "description": "Saved C++ solution buffer."
+        },
+        "codePython": {
+          "type": "string",
+          "maxLength": 25000,
+          "description": "Saved Python solution buffer."
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 5000,
+          "description": "Learner intuition and key invariant notes."
+        },
+        "recallAttempts": {
+          "type": "number",
+          "description": "Total Code Recall attempts."
+        },
+        "recallSuccessCount": {
+          "type": "number",
+          "description": "Successful Code Recall reproductions."
+        },
+        "lastRecallAccuracy": {
+          "type": "number",
+          "description": "Accuracy percentage (0-100) from the most recent recall test."
+        },
+        "easeFactor": {
+          "type": "number",
+          "description": "SM-2 spaced repetition ease factor."
+        },
+        "intervalDays": {
+          "type": "number",
+          "description": "Current review interval in days."
+        },
+        "repetitions": {
+          "type": "number",
+          "description": "Consecutive successful recall repetitions."
+        },
+        "nextReviewAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Scheduled timestamp for next spaced repetition review."
+        },
+        "lastPracticedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of most recent practice or code save."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server update timestamp."
+        }
+      },
+      "required": [
+        "userId",
+        "problemId",
+        "status",
+        "preferredLanguage",
+        "recallAttempts",
+        "recallSuccessCount",
+        "lastRecallAccuracy",
+        "easeFactor",
+        "intervalDays",
+        "repetitions",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "RecallSession": {
+      "title": "RecallSession",
+      "description": "Immutable audit log of a completed Code Recall attempt.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Owner Firebase Auth UID."
+        },
+        "problemId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Problem slug."
+        },
+        "language": {
+          "type": "string",
+          "enum": ["java", "cpp", "python"],
+          "description": "Language used in recall attempt."
+        },
+        "accuracyPercent": {
+          "type": "number",
+          "description": "Similarity / structural accuracy score (0-100)."
+        },
+        "passed": {
+          "type": "boolean",
+          "description": "Whether the recall threshold was met."
+        },
+        "durationSeconds": {
+          "type": "number",
+          "description": "Elapsed seconds for the recall attempt."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of the recall attempt."
+        }
+      },
+      "required": ["userId", "problemId", "language", "accuracyPercent", "passed", "durationSeconds", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Private learner profile document owned strictly by userId."
+    },
+    "/users/{userId}/progress/{problemId}": {
+      "schema": { "$ref": "#/entities/ProblemProgress" },
+      "description": "Learner progress and saved multi-language code for a specific DSA problem."
+    },
+    "/users/{userId}/recallSessions/{sessionId}": {
+      "schema": { "$ref": "#/entities/RecallSession" },
+      "description": "Immutable Code Recall session history for a learner."
+    }
+  }
+}
