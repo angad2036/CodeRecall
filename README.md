@@ -28,58 +28,52 @@ Learn, solve, visualize, and explore multiple approaches to programming problems
 - Firebase
 - Gemini API
 
+
 ## 📸 Screenshots
 
-
-📸 Screenshots
-
-1. Dashboard
-
+### 1. Dashboard
 The main dashboard of CodeRecall, providing an overview of the learning experience.
 
-"CodeRecall Dashboard" (./screenshot/codeRecall-Dashboard.png)
+![CodeRecall Dashboard](./screenshot/codeRecall-Dashboard.png)
 
-2. Problem Library
-
+### 2. Problem Library
 Browse DSA problems organized by categories and difficulty.
 
-"Problem Library" (./screenshot/CodeRecall-problem%20library.png)
+![Problem Library](./screenshot/CodeRecall-problem%20library.png)
 
-3. Problem Solving
-
+### 3. Problem Solving
 An interactive environment for understanding and solving coding problems.
 
-"Problem Solving" (./screenshot/CodeRecall-Problem%20Solving.png)
+![Problem Solving](./screenshot/CodeRecall-Problem%20Solving.png)
 
-4. Algorithm Visualization
-
+### 4. Algorithm Visualization
 Understand how algorithms work through interactive visual representations.
 
-"Algorithm Visualization" (./screenshot/CodeRecall-visualise.png)
+![Algorithm Visualization](./screenshot/CodeRecall-visualise.png)
 
-5. AI Explanations
-
+### 5. AI Explanations
 Understand problem logic and algorithm approaches through explanations.
 
-"AI Explanations" (./screenshot/CodeRecall-%20explanation.png)
+![AI Explanations](./screenshot/CodeRecall-%20explanation.png)
 
-6. Multiple Solutions
-
+### 6. Multiple Solutions
 Explore and compare different approaches to solving DSA problems.
 
-"Multiple Solutions" (./screenshot/CodeRecall-all%20possible%20solutions.png)
+![Multiple Solutions](./screenshot/CodeRecall-all%20possible%20solutions.png)
 
-7. Categories
-
+### 7. Categories
 Explore different DSA topics in an organized structure.
 
-"Categories" (./screenshot/CodeRecall-%20Categories.png)
+![Categories](./screenshot/CodeRecall-%20Categories.png)
 
-8. Visualizer Lab
-
+### 8. Visualizer Lab
 Explore interactive algorithm learning experiences.
 
-"Visualizer Lab" (./screenshot/CodeRecall-visualiserLab.png)
+![Visualizer Lab](./screenshot/CodeRecall-visualiserLab.png)
+
+
+
+
 
 ## ⚙️ Run Locally
 
